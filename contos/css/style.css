@@ -7,7 +7,6 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
 /*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/
@@ -614,7 +613,6 @@
 						position: absolute;
 						top: 0;
 						height: 100%;
-						width: auto;
 					}
 
 				.box.style1 .inner
