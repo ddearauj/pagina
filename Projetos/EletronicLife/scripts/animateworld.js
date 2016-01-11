@@ -1,16 +1,16 @@
-// test: no
   var active = null;
 
   function Animated(world) {
     var c = document.getElementById("myDIV");
     this.world = world;
-    var outer = (window.__sandbox ? window.__sandbox.output.div : c), doc = outer.ownerDocument;
+    var outer = c;
+    var doc = outer.ownerDocument;
     var node = outer.appendChild(doc.createElement("div"));
     node.style.cssText = "position: relative; width: intrinsic; width: fit-content;";
     this.pre = node.appendChild(doc.createElement("pre"));
     this.pre.appendChild(doc.createTextNode(world.toString()));
-    this.button = node.appendChild(doc.createElement("div"));
-    this.button.style.cssText = "position: absolute; bottom: 8px; right: -4.5em; color: white; font-family: tahoma, arial; " +
+    this.button = outer.appendChild(doc.createElement("div"));
+    this.button.style.cssText = "bottom: 8px; right: -4.5em; color: white; font-family: tahoma, arial; " +
       "background: #4ab; cursor: pointer; border-radius: 18px; font-size: 70%; width: 3.5em; text-align: center;";
     this.button.innerHTML = "stop";
     var self = this;
@@ -47,4 +47,12 @@
     this.button.style.color = "red";
   };
 
-  window.animateWorld = function(world) { new Animated(world); };
+  window.animateWorld = function(world) {
+   checkRun = true;
+   if (document.getElementById("novoMundo").value != null && checkRun == true) {
+   plan = (document.getElementById("novoMundo").value.split('\n'));
+   }
+   mundo = new World(plan, {"#": Wall,"o": BouncingCreature});
+   new Animated(mundo);
+   console.log(document.getElementById("novoMundo").value);
+ };
