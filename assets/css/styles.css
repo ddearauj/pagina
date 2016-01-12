@@ -187,6 +187,15 @@ iframe {
   margin-right: 5px;
   font-size: 14px;
 }
+
+.section .content .hidden {
+    margin-right: 5px;
+    font-size: 14px;
+    border: 1px solid black;
+    height: 15px;
+    padding: 12px;
+    overflow: hidden;
+}
 /* About Section */
 /* Latest Section */
 .latest .item {
