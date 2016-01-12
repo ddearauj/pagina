@@ -183,6 +183,14 @@ iframe {
   color: #545e69;
   font-size: 24px;
 }
+
+.section .heading-centro{
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #545e69;
+  font-size: 24px;
+  text-align: -webkit-center;
+}
 .section .content .more-link .fa {
   margin-right: 5px;
   font-size: 14px;
