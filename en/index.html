@@ -33,7 +33,24 @@
 
     <script type="text/javascript" src="/assets/plugins/jquery-1.11.2.min.js"></script>
     <script>$(function(){$("#segundo").load("/assets/html/secondary.html");});</script>
+    <script type="text/javascript">
+  $(document).ready(function(){                
+        $(window).bind('scroll',fetchMore);
+   });
 
+   fetchMore = function (){
+       if ( $(window).scrollTop() >= $(document).height()-$(window).height()-300 ){
+           $(window).unbind('scroll',fetchMore);
+            $.post('ajax/ajax_manager.php',{'action':'moreReviews','start':$('.review').length,'step':5 },
+            function(data) {
+               if(data.length>10){
+                    $(data).insertBefore($('#moreHolder'));
+                    $(window).bind('scroll',fetchMore);
+               }
+            });
+        }
+   }
+</script>
 </head> 
 
 <body>
@@ -176,7 +193,7 @@
                             </div><!--//item-->
                             <div class="item">
                                 <h3 class="title">Subsea Hardware Engineer, Summer Intern - <span class="place"><a href="http://www.shell.com/">Shell International Exploration and Production Inc</a></span> <span class="year">(Maio/15 - Aug/15)</span></h3>
-                                <p>•Worked closely with our vendors to analyze and decide what is the best fabrication model for the <a href="https://en.wikipedia.org/wiki/Christmas_tree_(oil_well)">Subsea Christmas Tree</a> the project needs. Understanding both the project’s and Shell’s scope to ensure synergy and collaboration to guarantee the best result for both. Delaying Shell’s commitment to spend and allocating their assets efficiently. Developed a mechanism to ensure that the subsea hardware in storage is properly preserved and managed by our vendors.</p>
+                                <p>Worked closely with our vendors to analyze and decide what is the best fabrication model for the <span><a href="https://en.wikipedia.org/wiki/Christmas_tree_(oil_well)">Subsea Christmas Tree</a></span> the project needs. Understanding both the project’s and Shell’s scope to ensure synergy and collaboration to guarantee the best result for both. Delaying Shell’s commitment to spend and allocating their assets efficiently. Developed a mechanism to ensure that the subsea hardware in storage is properly preserved and managed by our vendors.</p>
                             </div><!--//item-->
                             
                             <div class="item">
