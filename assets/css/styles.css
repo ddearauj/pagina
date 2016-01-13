@@ -20,7 +20,7 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   color: #778492;
@@ -31,6 +31,10 @@ a {
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
+}
+
+h6 {
+  text-align: -webkit-center;
 }
 a:hover {
   text-decoration: underline;
@@ -183,19 +187,19 @@ iframe {
   color: #545e69;
   font-size: 24px;
 }
-
-.section .heading-centro{
-  margin-top: 0;
-  margin-bottom: 30px;
-  color: #545e69;
-  font-size: 24px;
-  text-align: -webkit-center;
-}
 .section .content .more-link .fa {
   margin-right: 5px;
   font-size: 14px;
 }
 
+.section .content .sub {
+  color: #778492;
+  font-family: "Lato", arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
 .section .content .hidden {
     margin-right: 5px;
     font-size: 14px;
