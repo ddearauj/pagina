@@ -177,6 +177,7 @@ iframe {
   margin-bottom: 30px;
 }
 .section .section-inner {
+  text-align: -webkit-center;
   background: #fff;
   padding: 30px;
   border-radius: 10px;
