@@ -34,22 +34,7 @@
 
 <body>
     <!-- ******HEADER****** --> 
-    <header class="header">
-        <div class="container">                       
-            <a href="/"><img class="profile-image img-responsive pull-left" src="/assets/images/fotoperfil.png" alt="Daniel Pereira"/></a>
-            <div class="profile-content pull-left">
-                <h1 class="name">Daniel de Araujo Pereira</h1>
-                <h2 class="desc">Industiral Engineer Undergrad Student</h2>   
-                <ul class="social list-inline">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>                   
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="https://br.linkedin.com/in/dpereira14"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/ddearauj"><i class="fa fa-github-alt"></i></a></li>                  
-                    <li class="last-item"><a href="#"><i class="fa fa-hacker-news"></i></a></li>                 
-                </ul> 
-            </div><!--//profile-->
-            <a class="btn btn-cta-primary pull-right" href="http://themes.3rdwavemedia.com/" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>              
-        </div><!--//container-->
+    <header class="header" id ="header">
     </header><!--//header-->
     
     <div class="container sections-wrapper">
@@ -60,7 +45,7 @@
                         <h6 class="heading .centro"> Imuno-inspired Computation on the Independent Component Analysis in Galois Fields </h6>
                         <div class="content">
 
-                            <li><a href="https://github.com/ddearauj"><i class="fa fa-github-alt"></i></a></li>                  
+                            <p><a href="https://github.com/ddearauj/con-aiNet"><i class="fa fa-github-alt"></i></a>               
 
                             <p>The Blind Signal Separation (BSS) is the separation of a set of source signals from mixed signals. A simple example of such problem is to think of a group of people having a conversation and every person in the group is connected to a microphone. Each microphone is supposed to capture only the voice (signal) of the person it is attached to. But naturally it will pick up noises from other people in the group (sources), therefore the signal for each microphone will be a combination of the sources. What we want to do is separate the signal to make sure we have only a single voice per microphone.</p>
 
@@ -77,11 +62,6 @@
                             <p><a href="http://www.amazon.com/Fundamentals-Natural-Computing-Applications-Information/dp/1584886439">DE CASTRO, L. N. Fundamentals of Natural Computing: Basic Concepts, Algorithms and Applications. (Chapman & Hall/CRC Computer and Information Science Series)</a></p>
 
                            <p><a href="http://www.bibliotecadigital.unicamp.br/document/?code=000918458">SILVA, D. G. Aprendizado de máquina baseado na teoria da informação: contribuições à separação de sinais em corpos finitos e inversão de sistemas de Wiener.</a></p>
-
-                            <div class="sub" id="Expandir">
-                                <p onClick>TESTE</p>
-                            </div>
-
 
                         </div><!--//content-->
                     </div><!--//section-inner-->                 
@@ -208,7 +188,14 @@
     <script type="text/javascript" src="/assets/plugins/github-activity/dist/mustache/mustache.min.js"></script>
     <script type="text/javascript" src="/assets/plugins/github-activity/dist/github-activity-0.1.1.min.js"></script>
     <!-- custom js -->
-    <script type="text/javascript" src="/assets/js/main.js"></script>            
+    <script type="text/javascript" src="/assets/js/main.js"></script>   
+
+    <script>
+        $(function(){
+        $("#meta").load("/assets/html/meta.html"); 
+        $("#header").load("/assests/html/header.html"); 
+        });
+    </script>         
 </body>
 </html> 
 
