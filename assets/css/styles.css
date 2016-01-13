@@ -25,6 +25,7 @@ h6{
   font-weight: 700;
   color: #778492;
 }
+p{text-align: justify;}
 a {
   color: #5eb3ce;
   -webkit-transition: all 0.4s ease-in-out;
