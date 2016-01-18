@@ -1,9 +1,9 @@
 define(
 	//array of dependencies
 
-	["helpers", "world"],
+	["helpers", "world", "vector"],
 
-	function (helpers, world) {
+	function (helpers, world, vet) {
 			function View (world, vet) {
 			 	this.world = world;
 			 	this.vet = vet;

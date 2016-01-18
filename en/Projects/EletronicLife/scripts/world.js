@@ -4,13 +4,7 @@ define(
     "world",
 	//array of dependencies
 	["critter", "grid", "vector", "helpers"],
-	function (critter, grid, vector, helpers) {
-	
-
-
-
-
-
+	function (critter, grid, vet, helpers) {
 
 	// world constructor
 		function World(map, legend) {
@@ -51,11 +45,7 @@ define(
 					}
 				}
 			};
-
-
-
 		};
-
 			//gets the World object and converts to a String
 			World.prototype.toString = function() {
 				var output = "";
@@ -68,7 +58,6 @@ define(
 				}
 				return output;
 			};
-
 			// the turn in which the critters have the option to act
 			// so it scans the whole grid by using the grids for each method, that looks for objects that have an act method
 			World.prototype.turn = function () {

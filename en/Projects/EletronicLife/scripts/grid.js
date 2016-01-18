@@ -1,9 +1,9 @@
 define(
   //Array of dependencies
-  ["helpers"],
+  ["helpers", "vector"],
 
-  function (helpers) {
-    
+  function (helpers, vet) {
+
       // --- constructor to Grid Object --- //
       function Grid (width, height) {
       	this.matriz = new Array (height * width);

@@ -4,7 +4,6 @@ define(
 	"vector", 
 
 	//Array of dependencies (in this case, null)
-
 	// the function to execute after all dependencies have loaded
 	function() {
 		// --- Constructor --- //

@@ -3,7 +3,7 @@ define (
 	["vector"],
 
 	//the return function
-	function (vector) {
+	function (vet) {
 		//defining the module
 		return {
 			//creates the diretions to which the creature will move

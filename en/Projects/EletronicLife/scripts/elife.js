@@ -20,9 +20,9 @@
 
 require (
 	//array of dependencies
-	["world", "wall", "critter"],
+	["wall", "world", "critter"],
 
-	function (world) {
+	function (wall, world, critter) {
 		var checkRun = false;
 
 		var plan = ["############################",
