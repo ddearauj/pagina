@@ -7,7 +7,7 @@ define (
 		//defining the module
 		return {
 			//creates the diretions to which the creature will move
-			var directions = {
+			directions: {
 			  "n":  new Vector( 0, -1),
 			  "ne": new Vector( 1, -1),
 			  "e":  new Vector( 1,  0),
@@ -16,27 +16,27 @@ define (
 			  "sw": new Vector(-1,  1),
 			  "w":  new Vector(-1,  0),
 			  "nw": new Vector(-1, -1)
-			}
+			},
 
 			//generates a random number
-			function randomElement (vet) {
+			randomElement: function (vet) {
 				return vet[Math.floor(Math.random() * vet.length)];
-			}
+			},
 
 			// array with the direction names
-			var directionNames = "n s e w ne nw se sw".split(" ");
+			directionNames: "n s e w ne nw se sw".split(" "),
 
 
 			//this function works to define how a Creature will turn
 			//the dir is the reference point and the n is the number of 45 degrees turns clockwise
-			function dirPlus(dir, n) {
+			dirPlus: function (dir, n) {
 				var index = directionNames.indexOf(dir);
 				return directionNames[(index + n + 8) % 8];
-			}
+			},
 
 
 			//like a translator, creating an object element that has a type of the char that legend[ch] points to
-			function elementFromChar (legend, ch) {
+			elementFromChar: function (legend, ch) {
 				if (ch == " ") {
 					return null;
 				}
@@ -44,9 +44,9 @@ define (
 				var element = new legend[ch]();
 				element.originChar = ch;
 				return element;
-			}
+			},
 
-			function charFromElement (element) {
+			charFromElement: function (element) {
 				if (element == null) {
 					return " ";
 				}

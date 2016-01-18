@@ -4,7 +4,6 @@ define(
 	//the function
 	function () {
 		//return a function or object to define the vector method
-		return {
 
 			// to access the ij element in the matrix, we create a Vector object
 
@@ -20,7 +19,7 @@ define(
 			// vet is a Vector object that will be added --> this(x,y) + vet(x,y)
 			Vector.prototype.plus = function (vet) {
 				return new Vector(this.x + vet.x, this.y + vet.y);
-			}
-		}
+			};
+			return Vector;
 	}
 );

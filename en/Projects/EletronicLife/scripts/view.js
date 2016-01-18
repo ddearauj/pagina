@@ -4,7 +4,6 @@ define(
 	["helpers", "world"],
 
 	function (helpers, world) {
-		return {
 			function View (world, vet) {
 			 	this.world = world;
 			 	this.vet = vet;
@@ -40,6 +39,6 @@ define(
 					return randomElement(found);
 				}
 			}
-		}
+		return View;
 	}
 );

@@ -3,7 +3,6 @@ define(
 	["view", "helpers"],
 
 	function (view, helpers) {
-		return {
 			// --- BouncingCreature object constructor --- //
 			function BouncingCreature () {
 				this.direction = randomElement(directionNames);
@@ -16,6 +15,7 @@ define(
 				}
 					return {type: "move", direction: this.direction}
 			}
-		}
+		return BouncingCreature;
 	}
+
 );
