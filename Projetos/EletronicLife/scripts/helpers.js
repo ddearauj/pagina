@@ -1,9 +1,9 @@
 define (
 	//Array of dependencies (in this case, vector.js)
-	["vector"],
+	["vet"],
 
 	//the return function
-	function (vector) {
+	function (vet) {
 		//defining the module
 		return {
 			//creates the diretions to which the creature will move
