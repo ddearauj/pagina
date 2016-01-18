@@ -5,12 +5,12 @@ define(
 	function (view, helpers) {
 		return {
 			// --- BouncingCreature object constructor --- //
-			function BouncingCreature () {
+			function critter () {
 				this.direction = randomElement(directionNames);
 			}
 
 			//perform the action defined
-			BouncingCreature.prototype.act = function (view) {
+			critter.prototype.act = function (view) {
 				if (view.look (this.direction) != " ") {
 					this.direction = view.find(" ") || "s";
 				}
