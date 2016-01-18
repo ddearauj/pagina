@@ -30,27 +30,27 @@ define(
 				return output;
 			}
 
-			// the turn in which the creatures have the option to act
+			// the turn in which the critters have the option to act
 			// so it scans the whole grid by using the grids for each method, that looks for objects that have an act method
 			World.prototype.turn = function () {
 				var acted = [];
-				this.grid.forEach (function (creature, vet){
-					if (creature.act && acted.indexOf(creature) == - 1) {
-						acted.push(creature);
-						this.letAct(creature, vet);
+				this.grid.forEach (function (critter, vet){
+					if (critter.act && acted.indexOf(critter) == - 1) {
+						acted.push(critter);
+						this.letAct(critter, vet);
 					}
 				}, this);
 			}
 
-			World.prototype.letAct = function (creature, vet) {
-				var action = creature.act(new View (this, vet));
+			World.prototype.letAct = function (critter, vet) {
+				var action = critter.act(new View (this, vet));
 				if (action && action.type == "move") {
 					//so, if it is a move action
 					var dest = this.checkDestination(action, vet);
 					// first we check the destination. If it is true and the grid is " " (the grid.get returns null) then
 					if (dest && this.grid.get(dest) == null) {
 						this.grid.set(vet, null); //the ij position becomes " "
-						this.grid.set(dest, creature); // the ij position of dest now has "o" (creature)
+						this.grid.set(dest, critter); // the ij position of dest now has "o" (critter)
 					}
 
 				}
