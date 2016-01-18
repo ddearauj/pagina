@@ -1,25 +1,29 @@
+
 define(
+	//Name of the module
+	"vector", 
+
 	//Array of dependencies (in this case, null)
 
-	//the function
-	function () {
-		//return a function or object to define the vector method
+	// the function to execute after all dependencies have loaded
+	function() {
+		// --- Constructor --- //
+		
+		//contructor of the Vector object, which simply contains a set of (x,y) coordinates
+		function Vector(x, y) {
+	    	this.x = x;
+	    	this.y = y;
+		}
 
-			// to access the ij element in the matrix, we create a Vector object
+		// --- Methods --- //
 
-			// --- constructor for Vector --- //
-			function Vector(x, y) {
-				this.x = x;
-				this.y = y;
-			}
-
-			// --- methods for Vector --- //
-
-			// SUM
-			// vet is a Vector object that will be added --> this(x,y) + vet(x,y)
-			Vector.prototype.plus = function (vet) {
-				return new Vector(this.x + vet.x, this.y + vet.y);
-			};
-			return Vector;
+		// A simple addition of the (x,y) coordinates
+		Vector.prototype.plus = function(other) {
+	    	return new Vector(this.x + other.x, this.y + other.y);
+	    };
+	    
+	    return Vector;
 	}
 );
+
+

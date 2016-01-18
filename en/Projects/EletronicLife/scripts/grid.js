@@ -3,8 +3,8 @@ define(
   ["helpers"],
 
   function (helpers) {
+    
       // --- constructor to Grid Object --- //
-
       function Grid (width, height) {
       	this.matriz = new Array (height * width);
       	this.height = height;
