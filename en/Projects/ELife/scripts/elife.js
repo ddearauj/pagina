@@ -287,6 +287,26 @@ View.prototype.find = function(ch) {
 
 function Wall() {}
 
-var mundo = new World(plan, {"#": Wall,"o": BouncingCreature});
+/*****************************************
+ ----------Wallfollower Critter-------****
+ *****************************************/
+
+function WallFollower() {
+  this.dir = "s";
+}
+
+WallFollower.prototype.act = function(view) {
+  var start = this.dir;
+  if (view.look(dirPlus(this.dir, -3)) != " ")
+    start = this.dir = dirPlus(this.dir, -2);
+  while (view.look(this.dir) != " ") {
+    this.dir = dirPlus(this.dir, 1);
+    if (this.dir == start) break;
+  }
+  return {type: "move", direction: this.dir};
+};
 
 
+
+
+var mundo = new World(plan, {"#": Wall,"o": BouncingCreature, "~": WallFollower});
