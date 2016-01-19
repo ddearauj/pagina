@@ -95,7 +95,7 @@ function elementFromChar (legend, ch) {
 		return null;
 	}
 
-	var element = new legend[ch]();
+	var element = new legend[ch];
 	element.originChar = ch;
 	return element;
 }
