@@ -21,15 +21,15 @@
 
 var checkRun = false;
 
- var plan = ["############################",
+var plan = ["############################",
 			 "#oo    #                   #",
 			 "#           #o             #",
 			 "#                          #",
-			 "#               #          #",
+			 "#          #    #          #",
 			 "#                          #",
-			 "#                          #",
-			 "#                          #",
-			 "#                          #",
+			 "#         ~                #",
+			 "#         ##               #",
+			 "#         ##               #",
 			 "#                          #",
 			 "#     #      o##     ##    #",
 			 "#                          #",
@@ -95,7 +95,7 @@ function elementFromChar (legend, ch) {
 		return null;
 	}
 
-	var element = new legend[ch];
+	var element = new legend[ch]();
 	element.originChar = ch;
 	return element;
 }
@@ -291,11 +291,11 @@ function Wall() {}
  ----------Wallfollower Critter-------****
  *****************************************/
 
-function WallFollower() {
+function Follower () {
   this.dir = "s";
 }
 
-WallFollower.prototype.act = function(view) {
+Follower.prototype.act = function(view) {
   var start = this.dir;
   if (view.look(dirPlus(this.dir, -3)) != " ")
     start = this.dir = dirPlus(this.dir, -2);
@@ -309,4 +309,6 @@ WallFollower.prototype.act = function(view) {
 
 
 
-var mundo = new World(plan, {"#": Wall,"o": BouncingCreature, "~": WallFollower});
+var mundo; //= new World(plan, {"#": Wall,
+		//					 "~": Follower,
+		//					 "o": BouncingCreature});
