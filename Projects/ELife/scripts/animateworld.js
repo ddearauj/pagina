@@ -52,7 +52,7 @@
    log = document.getElementById("novoMundo").value;
 
    if (log != "" && checkRun == true) {
-   plan = (document.getElementById("novoMundo").value.split('\n'));
+    plan = (document.getElementById("novoMundo").value.split('\n'));
    }
    mundo = new World(plan, {"#": Wall,"o": BouncingCreature, "~": Follower});
    new Animated(mundo);

@@ -376,11 +376,13 @@ Game.prototype.andThen = function (stat, instance, n) {
 if (stat == "lost") {
   if(instance.lives > 0) {
     instance.lives--;
+      document.getElementById('log').innerHTML = 'Lives: ' instance.lives + 1;
       instance.startLevel(n);
     }
     else{
-      alert("You died, loser")
+      alert("You died, start again!")
       instance.lives = 2;
+      document.getElementById('log').innerHTML = 'Lives: ' instance.lives + 1;
       instance.startLevel(0);
     }
   }
@@ -464,5 +466,6 @@ var arrows = trackKeys(arrowCodes);
 
 function runGame(plans, Display, Game) {
   var game = new Game(plans, Display);
+  document.getElementById('log').innerHTML = 'Lives:' this.lives + 1;
   game.startLevel(0, game);
 }
