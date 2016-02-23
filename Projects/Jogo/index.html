@@ -31,9 +31,6 @@
     <script type="text/javascript" src="/assets/plugins/jquery-1.11.2.min.js"></script>
     <script>$(function(){$("#segundo").load("/assets/html/secondary.html");});</script>
     <script>$(function(){$("#head").load("/assets/html/header.html");});</script>
-    <script src="./main.js"></script>
-    <script src="./game_levels.js"></script>
-    <script src="./canvas.js"></script>
 </head> 
 
 <body>
@@ -48,22 +45,17 @@
             <div class="primary col-md-8 col-sm-12 col-xs-12">
                 <section class="about section">
                     <div class="section-inner">
-                        <h2 class="heading"> Elife </h2>
+                        <h2 class="heading"> Platformer </h2>
 
                         <p>This is the platformer game project from the book <a href="http://eloquentjavascript.net/" >Eloquent JavaScript</a> I've added the lives system to the game. The player starts with 3 lives and if he loses them all, he returns to the first level</p>
 
                         <p><a href="https://github.com/ddearauj/pagina/tree/gh-pages/Projects/Jogo"><i class="fa fa-github-alt"></i></a><a href="https://github.com/ddearauj/pagina/tree/gh-pages/Projects/Jogo">  Project Github</a></p> 
-                        <div>
                         <script>
                             runGame(GAME_LEVELS, CanvasDisplay, Game);
                         </script>
-                        </div>
                         <div class = "log"></div>
 
-
                         </div>
-
-
                         <div class="content">
                         </div><!--//content-->
                     </div><!--//section-inner-->                 
@@ -84,7 +76,10 @@
     <script type="text/javascript" src="/assets/plugins/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="/assets/plugins/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
-    <script type="text/javascript" src="/assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script> 
+    <script type="text/javascript" src="/assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="./game_levels.js"></script>
+    <script src="./canvas.js"></script>
 
     <!-- github activity plugin -->
     <script type="text/javascript" src="/assets/plugins/github-activity/dist/mustache/mustache.min.js"></script>
