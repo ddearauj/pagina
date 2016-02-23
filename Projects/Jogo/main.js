@@ -376,13 +376,11 @@ Game.prototype.andThen = function (stat, instance, n) {
 if (stat == "lost") {
   if(instance.lives > 0) {
     instance.lives--;
-      document.getElementById('log').innerHTML = 'Lives: ' instance.lives + 1;
       instance.startLevel(n);
     }
     else{
       alert("You died, start again!")
       instance.lives = 2;
-      document.getElementById('log').innerHTML = 'Lives: ' instance.lives + 1;
       instance.startLevel(0);
     }
   }
@@ -394,6 +392,7 @@ if (stat == "lost") {
 
 Game.prototype.runLevel = function(level, Display, andThen, instance, n) {
   var display = new Display(document.body, level);
+  document.getElementById('log').innerHTML = 'Lives: ' instance.lives + 1;
   runAnimation(function(step) {
     level.animate(step, arrows);
     display.drawFrame(step);
@@ -466,6 +465,5 @@ var arrows = trackKeys(arrowCodes);
 
 function runGame(plans, Display, Game) {
   var game = new Game(plans, Display);
-  document.getElementById('log').innerHTML = 'Lives:' this.lives + 1;
   game.startLevel(0, game);
 }
