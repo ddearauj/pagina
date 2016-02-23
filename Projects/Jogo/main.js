@@ -123,16 +123,6 @@ Level.prototype.animate = function(step, keys) {
   }
 };
 
-Lava.prototype.act = function(step, level) {
-  var newPos = this.pos.plus(this.speed.times(step));
-  if (!level.obstacleAt(newPos, this.size))
-    this.pos = newPos;
-  else if (this.repeatPos)
-    this.pos = this.repeatPos;
-  else
-    this.speed = this.speed.times(-1);
-};
-
 Level.prototype.playerTouched = function(type, actor) {
   if (type == "lava" && this.status == null) {
     this.status = "lost";
@@ -150,7 +140,12 @@ Level.prototype.playerTouched = function(type, actor) {
   }
 };
 
-
+//called at runGame function
+Level.prototype.lavaGenerator = function() {
+  if (Math.random(0,1.0) > .87) {
+  this.actors.push(new Actor(new Vector(int(Math.random(0,1.0))*this.width, 0, "v")));
+  };
+};
 /*********************
  *                   *
  *   Player Object   *
@@ -230,10 +225,32 @@ function Lava(pos, ch) {
   } else if (ch == "v") {
     this.speed = new Vector(0, 3);
     this.repeatPos = pos;
+    //this.active = false;
   }
 }
 Lava.prototype.type = "lava";
 
+Lava.prototype.act = function(step, level) {
+  var newPos = this.pos.plus(this.speed.times(step));
+  //if(this.active) {
+    if (!level.obstacleAt(newPos, this.size))
+      this.pos = newPos;
+    else if (this.repeatPos) { //if hits the floor
+      this.pos = this.repeatPos; // kill lava?
+      //this.active = false;
+    }
+    else
+      this.speed = this.speed.times(Math.random(0,1)*(-1));
+  //}
+  //else {
+  //  var chanceActive = Math.random(0,1);
+  //  if (chanceActive > .9990) {
+  //    this.active = true;
+  //  };
+  //}
+
+
+};
 
 /*********************
  *                   *
@@ -342,6 +359,61 @@ DOMDisplay.prototype.clear = function() {
   this.wrap.parentNode.removeChild(this.wrap);
 };
 
+/*********************
+ *                   *
+ *    Game Object    *
+ *                   *
+ *********************/
+
+function Game (plans, Display) {
+  this.lives = 2;
+
+  this.plans = plans;
+  this.display = Display;
+}
+
+Game.prototype.andThen = function (stat, instance, n) {
+if (stat == "lost") {
+  if(instance.lives > 0) {
+    instance.lives--;
+      instance.startLevel(n);
+    }
+    else{
+      alert("You died, loser")
+      instance.lives = 2;
+      instance.startLevel(0);
+    }
+  }
+  else if (n < instance.plans.length - 1)
+    instance.startLevel(n + 1);
+    else
+      console.log("You win!");
+};
+
+Game.prototype.runLevel = function(level, Display, andThen, instance, n) {
+  var display = new Display(document.body, level);
+  runAnimation(function(step) {
+    level.animate(step, arrows);
+    display.drawFrame(step);
+    if (level.isFinished()) {
+      display.clear();
+      if (andThen)
+        andThen(level.status, instance, n);
+      return false;
+    }
+  });
+}
+
+Game.prototype.startLevel = function(n) {
+    var game = this;
+    this.runLevel(new Level(game.plans[n]), game.display, game.andThen, game, n);
+}
+
+
+
+
+
+
 var arrowCodes = {37: "left", 38: "up", 39: "right"};
 
 function trackKeys(codes) {
@@ -375,7 +447,7 @@ function runAnimation(frameFunc) {
 
 var arrows = trackKeys(arrowCodes);
 
-function runLevel(level, Display, andThen) {
+/*function runLevel(level, Display, game, andThen) {
   var display = new Display(document.body, level);
   runAnimation(function(step) {
     level.animate(step, arrows);
@@ -383,24 +455,14 @@ function runLevel(level, Display, andThen) {
     if (level.isFinished()) {
       display.clear();
       if (andThen)
-        andThen(level.status);
+        andThen(level.status, game);
       return false;
     }
   });
 }
+*/
 
-function runGame(plans, Display) {
-  function startLevel(n) {
-    runLevel(new Level(plans[n]), Display, function(status) {
-      if (status == "lost")
-        startLevel(n);
-      else if (n < plans.length - 1)
-        startLevel(n + 1);
-      else
-        console.log("You win!");
-    });
-  }
-  startLevel(0);
+function runGame(plans, Display, Game) {
+  var game = new Game(plans, Display);
+  game.startLevel(0, game);
 }
-
-var simpleLevel = new Level(simpleLevelPlan);

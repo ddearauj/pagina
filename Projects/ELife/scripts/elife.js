@@ -78,7 +78,7 @@ function randomElement (vet) {
 }
 
 // array with the direction names
-var directionNames = "n s e w ne nw se sw".split(" ");
+var directionNames = "n ne e se s sw w nw".split(" ");
 
 
 //this function works to define how a Creature will turn
