@@ -392,7 +392,7 @@ if (stat == "lost") {
 
 Game.prototype.runLevel = function(level, Display, andThen, instance, n) {
   var display = new Display(document.body, level);
-  document.getElementById('log').innerHTML = 'Lives: ' instance.lives + 1;
+  document.getElementById("log").innerHTML = "Lives: ";
   runAnimation(function(step) {
     level.animate(step, arrows);
     display.drawFrame(step);
